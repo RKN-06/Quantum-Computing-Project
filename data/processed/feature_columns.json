@@ -1,0 +1,18 @@
+[
+  "return_1d",
+  "return_5d",
+  "return_10d",
+  "return_20d",
+  "volatility_5d",
+  "volatility_10d",
+  "volatility_20d",
+  "ma_distance_5d",
+  "ma_distance_10d",
+  "ma_distance_20d",
+  "ma_distance_50d",
+  "intraday_range",
+  "close_open_return",
+  "volume_log_change",
+  "volume_zscore_20d",
+  "rsi_14d"
+]

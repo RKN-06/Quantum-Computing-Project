@@ -5,3 +5,5 @@ __pycache__/
 
 # Generated experiment outputs
 results/
+# Isolated classical benchmark environment
+.venv-stage3/
