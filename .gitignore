@@ -3,9 +3,5 @@
 __pycache__/
 .ipynb_checkpoints/
 
-# Large local datasets and generated outputs
-data/raw/
-data/interim/
-data/processed/
-data/*.csv
+# Generated experiment outputs
 results/
