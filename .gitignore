@@ -7,3 +7,6 @@ __pycache__/
 results/
 # Isolated classical benchmark environment
 .venv-stage3/
+
+# Isolated quantum benchmark environment
+.venv-stage4/
