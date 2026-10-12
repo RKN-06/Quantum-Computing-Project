@@ -1,35 +1,70 @@
 # Performance Evaluation of Quantum Support Vector Machines (QSVM) vs Classical SVMs on High-Dimensional Financial Data
 
-## Current implementation status (2026-10-12)
+## Current status (2026-10-12)
 
 Team: **CtrlQ**.
 
-The original binary matched comparison is **complete**, including its computational analysis. The notebooks now also execute a separate binary-plus-three-class extension. Five-class classification and noise simulation remain deferred. The former approximately 70% milestone describes the original scope and is not a recalculated completion percentage for this expanded scope.
+The project is organised into four separate parts. Only the first two have results; their numbers come from different samples and must not be ranked against each other.
 
-| Pipeline block | Status |
-|---|---|
-| Source preparation and 16 causal financial features | Complete, with documented source-data limitations |
-| Original binary classical and ideal QSVM experiments | Complete |
-| Original matched binary comparison and cost analysis | Complete |
-| Binary plus three-class labels, temporal splits, models and matched comparison | Executed extension; exploratory |
-| Sample/qubit scaling and circuit ablations | Planned |
-| Time-aware statistical uncertainty and fresh confirmatory evaluation | Planned |
-| Five-class and noise experiments | Deferred |
-| Hardware and backtesting | Optional, not performed |
+| Part | Status | Evidence |
+|---|---|---|
+| A. Original binary comparison | Complete | `reports/stage5`, Notebooks 03–05 (legacy sections) |
+| B. Binary plus three-class extension | Executed, exploratory | `results/extension`, `reports/multiclass`, Notebooks 02–05 (extension sections) |
+| C. Scaling and statistical validation | Planned, not started | — |
+| D. Five-class classification and noise simulation | Deferred | — |
+| Hardware execution and backtesting | Optional, not performed | — |
 
-See `docs/multiclass_extension.md` for the actual extension protocol, measured results and reproducibility instructions. Existing binary evidence under `reports/stage5` remains frozen.
+The former approximately 70% milestone describes the original binary scope only; it is not a completion percentage for the expanded scope.
+
+### A. Completed: original binary comparison
+
+Source preparation (Notebook 01), 16 causal features (Notebook 02), a classical benchmark on all 16 features (Notebook 03: 2,500 development and 1,000 evaluation rows) and a matched classical/QSVM comparison on 2 or 4 bounded PCA components (Notebook 04: 280 development and 100 evaluation rows over 20 dates). Notebook 05 recomputed all 70 Stage 4 metric values from saved predictions and accounted for computational cost.
+
+| PCA components / qubits | Validation-selected classical | Classical balanced accuracy | QSVM balanced accuracy | Difference |
+|---|---|---:|---:|---:|
+| 2 | rbf | 53.77% | 51.65% | −2.11 pp |
+| 4 | linear | 55.88% | 54.14% | −1.75 pp |
+
+Both QSVMs beat the dummy's 50% balanced accuracy but neither beats its validation-selected classical comparator. Details: `docs/03_classical_svm.md`, `docs/04_qsvm.md`, `docs/05_comparison_analysis.md`. This evidence is frozen and was not changed by the extension.
+
+### B. Executed: binary plus three-class extension
+
+Same five stocks and 16 features, with a larger deterministic sample: 1,000 training rows (2015–2020), 400 validation rows (2021–2022), 1,400 development rows for refitting and 500 evaluation rows over 100 dates (2023–2024). Three-class labels use fixed ±0.25% simple-return bands (DOWN, NEUTRAL, UP), set before the run. Both tasks share identical rows. Notebook 05 recomputed 140 metric values from saved predictions.
+
+| Task | Qubits | Validation-selected classical | Classical balanced accuracy | QSVM balanced accuracy | Difference |
+|---|---:|---|---:|---:|---:|
+| binary | 2 | rbf | 49.93% | 48.49% | −1.44 pp |
+| binary | 4 | polynomial | 51.34% | 47.73% | −3.62 pp |
+| three-class | 2 | polynomial | 36.82% | 35.16% | −1.66 pp |
+| three-class | 4 | linear | 34.24% | 30.43% | −3.82 pp |
+
+Chance balanced accuracy is 50% for binary and 33.33% for three-class. On this larger sample no binary model is clearly above chance, both binary QSVMs and the 4-qubit three-class QSVM score below the dummy, and the QSVM trails its classical comparator in every cell. The binary rerun does not reproduce the above-chance results of the smaller original run. The 2023–2024 period had already been inspected, so these results are exploratory. Full tables, per-class support and caveats: `docs/multiclass_extension.md`.
+
+### C. Planned: scaling and statistical validation
+
+- Sample-size and qubit-count scaling curves for accuracy and kernel cost.
+- Circuit ablations: feature map, repetitions and entanglement topology.
+- Time-aware uncertainty (date-blocked resampling) and paired model comparisons on identical predictions.
+- A fresh, untouched confirmatory evaluation period with a protocol frozen beforehand.
+- Source-price adjustment verification and a survivorship-bias review.
+
+### D. Deferred: five-class classification and noise simulation
+
+Five-class labels, finite-shot kernel estimation and noise-model studies (Sections 14–15) are deferred and have not been implemented. All QSVM results so far use exact, noiseless statevector simulation.
+
+No result in this project establishes statistical significance, quantum advantage or trading profitability.
 
 ## 1. Project overview
 
 This project evaluates whether quantum-kernel Support Vector Machines (QSVMs) provide useful classification performance, robustness, or modelling characteristics relative to carefully tuned classical SVMs on financial data with many engineered features. It is a benchmarking and reproducibility project—not a claim that quantum machine learning will outperform classical methods.
 
-The primary task is directional classification: use information available at a market close to predict whether the next chosen return horizon is positive or non-positive. The work compares predictive quality, computational cost, sensitivity to feature dimension, and resilience to realistic quantum noise.
+The primary task is directional classification: use information available at a market close to predict whether the next chosen return horizon is positive or non-positive. The work compares predictive quality, computational cost and sensitivity to feature dimension. Resilience to realistic quantum noise is a deferred extension.
 
 ## 2. Motivation and problem statement
 
 Financial prediction data is noisy, non-stationary, and prone to accidental look-ahead bias. Kernel methods are attractive because they can express nonlinear relationships, but their computational cost can grow sharply with sample size. Quantum feature maps offer a different implicit feature space, yet their practical benefit on realistic financial tasks remains uncertain.
 
-**Problem statement.** Design a leakage-safe, time-aware experimental framework that compares classical SVM kernels with quantum-kernel SVMs on a common financial classification task. Determine, with uncertainty reported, how the approaches differ across predictive performance, resource use, scaling, circuit choices, and simulated noise.
+**Problem statement.** Design a leakage-safe, time-aware experimental framework that compares classical SVM kernels with quantum-kernel SVMs on a common financial classification task. Determine, with uncertainty reported, how the approaches differ across predictive performance, resource use, scaling and circuit choices (simulated noise is deferred).
 
 ## 3. Objectives and research questions
 
@@ -39,7 +74,7 @@ Financial prediction data is noisy, non-stationary, and prone to accidental look
 2. Establish strong classical SVM baselines before assessing quantum methods.
 3. Evaluate QSVM kernels on reduced, bounded feature representations.
 4. Measure accuracy **and** computational and quantum-resource costs.
-5. Test sensitivity to dimensionality, circuit design, shots, and noise.
+5. Test sensitivity to dimensionality and circuit design (planned); shots and noise (deferred).
 6. Optionally validate a deliberately small experiment on IBM Quantum hardware.
 
 ### Research questions
@@ -47,12 +82,12 @@ Financial prediction data is noisy, non-stationary, and prone to accidental look
 - How do QSVM and classical linear, RBF, and polynomial SVMs compare on strictly out-of-sample temporal data?
 - Does a quantum feature map add value beyond classical nonlinear kernels at equivalent input dimension?
 - How do accuracy, AUC, F1, and calibration vary with the number of retained features and training observations?
-- How do circuit depth, entanglement, shots, and noise affect the quantum kernel?
+- How do circuit depth and entanglement affect the quantum kernel? (planned; shots and noise are deferred)
 - What are the runtime, kernel-construction, memory, and circuit-resource trade-offs?
 
 ## 4. Scope and success criteria
 
-**In scope:** binary and three-class next-observation direction classification; public market data; engineered technical, return, volatility, volume, and cross-asset features; simulator-first QSVM experiments; time-series validation; transparent reporting.
+**In scope:** binary and three-class next-observation direction classification (five-class is deferred); public market data; engineered technical, return, volatility, volume, and cross-asset features; simulator-first QSVM experiments; time-series validation; transparent reporting.
 
 **Out of scope unless separately added:** live trading, investment advice, causal claims, high-frequency execution, and claims of quantum advantage. A negative QSVM result is a valid outcome.
 
@@ -175,24 +210,28 @@ Measure wall-clock time separately for preprocessing, model tuning, kernel const
 
 | Experiment family | Controlled variations | Primary outputs |
 |---|---|---|
-| Baseline benchmark | linear/RBF/poly; full vs reduced inputs | predictive metrics, runtime |
-| Dimension scaling | 2, 4, 6, 8 retained dimensions/qubits where feasible | accuracy vs dimension; cost curve |
-| Sample scaling | increasing chronological training sizes | runtime/memory/kernel-build scaling |
-| Circuit ablation | feature map, repetitions, entanglement topology | metric/resource comparison |
-| Shot study | statevector and selected finite shot counts | variance and cost trade-off |
-| Noise study | depolarizing, readout, and backend-inspired noise | degradation versus ideal simulation |
-| Robustness | alternate asset, period, horizon, threshold | stability of conclusions |
-| Optional hardware | tiny frozen best/representative configuration | simulator–hardware gap |
+| Baseline benchmark (complete) | linear/RBF/poly; full vs reduced inputs | predictive metrics, runtime |
+| Dimension scaling (planned) | 2, 4, 6, 8 retained dimensions/qubits where feasible | accuracy vs dimension; cost curve |
+| Sample scaling (planned) | increasing chronological training sizes | runtime/memory/kernel-build scaling |
+| Circuit ablation (planned) | feature map, repetitions, entanglement topology | metric/resource comparison |
+| Shot study (deferred) | statevector and selected finite shot counts | variance and cost trade-off |
+| Noise study (deferred) | depolarizing, readout, and backend-inspired noise | degradation versus ideal simulation |
+| Robustness (planned) | alternate asset, period, horizon, threshold | stability of conclusions |
+| Optional hardware (not performed) | tiny frozen best/representative configuration | simulator–hardware gap |
 
 Keep the experiment matrix manageable. Freeze a small set of configurations based on development folds before the final test. Each run should have a unique ID and machine-readable configuration file.
 
-## 15. Noise and optional IBM Quantum hardware validation
+## 15. Noise and optional IBM Quantum hardware validation (deferred / optional)
+
+This section is design guidance only. No shot-based, noise-model or hardware experiment has been run.
 
 Use ideal statevector simulation to establish a reference, then use finite-shot simulation and documented noise models. Vary one dimension at a time when possible: readout error, one-/two-qubit depolarization, shot count, or circuit depth. Report mean and variability over repeated kernel estimates/seeds.
 
 Hardware validation is optional and should be small: few qubits, limited samples, frozen circuit and preprocessing, and a predeclared runtime budget. Record backend name, calibration timestamp, transpilation settings, shots, queue/execution details, and mitigation method if used. Never compare a hardware result to an ideal simulator without identifying the mismatch. Hardware evidence validates feasibility for that tiny setup; it does not establish broad practical advantage.
 
-## 16. Statistical validation and financial interpretation
+## 16. Statistical validation and financial interpretation (planned)
+
+No confidence intervals, hypothesis tests or backtests have been produced yet.
 
 Report fold distributions, mean/median and spread, not only a best score. Use paired, time-aware comparisons between models on identical out-of-sample predictions. Suitable options include block bootstrap confidence intervals, a corrected resampled comparison, or a Diebold–Mariano-style forecast comparison where assumptions are carefully stated. Avoid treating correlated daily observations as independent.
 
@@ -207,7 +246,7 @@ An optional illustrative backtest can translate predicted directions into a simp
 - Accuracy/F1/AUC against retained dimension and training sample size.
 - Kernel-construction runtime and memory against sample size.
 - Circuit depth/two-qubit-gate count against performance.
-- Noise-strength and shot-count sensitivity plots.
+- Noise-strength and shot-count sensitivity plots (deferred).
 - Optional cumulative-return and drawdown charts, clearly labelled illustrative.
 
 ## 18. Suggested repository structure

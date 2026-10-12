@@ -78,7 +78,7 @@ The small five-stock sample and earlier long-history eligibility can introduce s
 
 The 2023–2024 period was previously inspected in this project and is an exploratory evaluation, not a fresh final holdout. No claims of quantum advantage, statistical significance, generalization to all index constituents, or financial profitability are supported. Statevector simulation on 2–4 qubits is classically tractable.
 
-Later stages cover larger matched comparisons, sample/qubit scaling, circuit ablations, shots, noise, optional hardware, uncertainty estimation and the final report. A confirmatory study needs a frozen protocol and an unexamined evaluation period.
+Planned later stages cover larger matched comparisons, sample/qubit scaling, circuit ablations, uncertainty estimation and the final report. Shot and noise studies are deferred, and hardware execution is optional and not performed. A confirmatory study needs a frozen protocol and an unexamined evaluation period.
 
 ## References
 - [IBM: ZZ feature map](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.zz_feature_map)

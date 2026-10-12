@@ -46,7 +46,7 @@ The 2023–2024 period was previously examined in project experiments and must b
 The five named stocks and the earlier long-history eligibility screen can introduce survivorship bias. The price-adjustment policy remains unverified. Next-observation labels can span missing trading sessions. The earlier HUBB price imputation is not source-verified (HUBB is not selected here).
 
 ## Next stage
-Fit dimensionality reduction and bounded quantum mappings on development training data. Compare quantum and classical kernels on exactly matched observations and representations. Advanced scaling, noise, hardware and statistical studies remain future stages.
+Fit dimensionality reduction and bounded quantum mappings on development training data. Compare quantum and classical kernels on exactly matched observations and representations. Scaling and statistical validation are planned. Noise studies are deferred, and hardware execution is optional and not performed.
 
 
 ## Binary plus three-class update

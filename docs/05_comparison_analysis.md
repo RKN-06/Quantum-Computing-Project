@@ -65,9 +65,11 @@ Five-stock selection and the full-history eligibility rule may create survivorsh
 ## Milestone and remaining stages
 This completes the comparison stage and the agreed approximate 70% implementation milestone: data preparation, features, classical baselines, training-only PCA/encoding, an initial QSVM, and a verified matched comparison. The percentage describes planned scope, not measured effort or scientific confidence.
 
-Two main stages remain:
-1. Prespecified scalability, circuit, shot and noise experiments. Optional hardware execution requires its own setup and authorization.
-2. Time-aware statistical validation, robustness/source-data review and the final report and presentation.
+After the binary-plus-three-class extension (see below), the remaining work is:
+1. **Planned:** prespecified sample and qubit scaling and circuit experiments.
+2. **Planned:** time-aware statistical validation, robustness and source-data review, and the final report and presentation.
+3. **Deferred:** five-class classification, and shot-based and noise-model experiments.
+4. **Optional, not performed:** hardware execution (requires its own setup and authorization) and backtesting.
 
 These future stages should freeze their protocol before examining fresh evaluation results. Broader conclusions must wait for that evidence.
 
@@ -75,3 +77,5 @@ These future stages should freeze their protocol before examining fresh evaluati
 ## Binary plus three-class update
 
 The original results above document the legacy binary experiment. The updated notebooks retain that evidence and add the protocol documented in [multiclass extension](multiclass_extension.md). Every code cell now has a heading and one-line explanation. Use requirements-stage4.txt for the updated notebook sequence. Three-class output is separate from binary output; five-class and noise remain deferred. The original matched comparison is complete, not future work.
+
+On the extension's larger 500-row evaluation, the QSVM trails its validation-selected classical comparator in all four task and dimension cells (−1.44 to −3.82 percentage points), and no binary model is clearly above 50% balanced accuracy. These results come from a different sample and do not replace the findings above. See [multiclass extension](multiclass_extension.md) for all numbers.
