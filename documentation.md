@@ -1,5 +1,24 @@
 # Performance Evaluation of Quantum Support Vector Machines (QSVM) vs Classical SVMs on High-Dimensional Financial Data
 
+## Current implementation status (2026-10-12)
+
+Team: **CtrlQ**.
+
+The original binary matched comparison is **complete**, including its computational analysis. The notebooks now also execute a separate binary-plus-three-class extension. Five-class classification and noise simulation remain deferred. The former approximately 70% milestone describes the original scope and is not a recalculated completion percentage for this expanded scope.
+
+| Pipeline block | Status |
+|---|---|
+| Source preparation and 16 causal financial features | Complete, with documented source-data limitations |
+| Original binary classical and ideal QSVM experiments | Complete |
+| Original matched binary comparison and cost analysis | Complete |
+| Binary plus three-class labels, temporal splits, models and matched comparison | Executed extension; exploratory |
+| Sample/qubit scaling and circuit ablations | Planned |
+| Time-aware statistical uncertainty and fresh confirmatory evaluation | Planned |
+| Five-class and noise experiments | Deferred |
+| Hardware and backtesting | Optional, not performed |
+
+See `docs/multiclass_extension.md` for the actual extension protocol, measured results and reproducibility instructions. Existing binary evidence under `reports/stage5` remains frozen.
+
 ## 1. Project overview
 
 This project evaluates whether quantum-kernel Support Vector Machines (QSVMs) provide useful classification performance, robustness, or modelling characteristics relative to carefully tuned classical SVMs on financial data with many engineered features. It is a benchmarking and reproducibility project—not a claim that quantum machine learning will outperform classical methods.
@@ -33,7 +52,7 @@ Financial prediction data is noisy, non-stationary, and prone to accidental look
 
 ## 4. Scope and success criteria
 
-**In scope:** binary daily (or other explicitly fixed horizon) direction classification; public market data; engineered technical, return, volatility, volume, and cross-asset features; simulator-first QSVM experiments; time-series validation; transparent reporting.
+**In scope:** binary and three-class next-observation direction classification; public market data; engineered technical, return, volatility, volume, and cross-asset features; simulator-first QSVM experiments; time-series validation; transparent reporting.
 
 **Out of scope unless separately added:** live trading, investment advice, causal claims, high-frequency execution, and claims of quantum advantage. A negative QSVM result is a valid outcome.
 
@@ -55,7 +74,7 @@ Pin dependency versions in `requirements.txt` or `environment.yml`. Record rando
 
 ## 6. Dataset strategy
 
-Start with a small, defensible universe: one liquid equity index ETF (for example, SPY) or a basket of large liquid equities. Use adjusted OHLCV data, document provider and retrieval time, and cache the raw download unchanged. A broader later stage may add sector ETFs, index constituents, macro proxies, and a panel formulation.
+The implemented source is SP500_Historical_Data.csv, with a five-stock experiment universe: AAPL, MSFT, JPM, XOM and JNJ. The following acquisition guidance is general design guidance, not a claim that another dataset was downloaded. Use adjusted OHLCV data, document provider and retrieval time, and cache the raw download unchanged. A broader later stage may add sector ETFs, index constituents, macro proxies, and a panel formulation.
 
 Choose a period long enough to include multiple regimes (calm, stress, recovery) where data licensing permits. Never mix adjusted and unadjusted fields without documenting the treatment. Missing dates, splits, holidays, duplicated rows, and implausible prices must be validated before features are created.
 
@@ -65,7 +84,7 @@ For each decision date `t`, define the forward log return for horizon `h`:
 
 `r(t, h) = log(close[t + h] / close[t])`
 
-The primary label is `y(t) = 1` if `r(t,h) > 0`, otherwise `0`. Fix `h` (initially one trading day) before evaluation. Optional robustness targets include a neutral band, e.g. positive only when `r(t,h) > τ`, with neutral observations removed or modelled as a third class. The operational timing must be explicit: features through close `t` can only support a decision after that close, for a next-session outcome.
+The primary label is `y(t) = 1` if `r(t,h) > 0`, otherwise `0`. Fix `h` (initially one trading day) before evaluation. The implemented three-class extension uses SIMPLE return thresholds: DOWN below -0.25%, NEUTRAL between -0.25% and +0.25% inclusive, UP above +0.25%. These fixed thresholds are not tuned on evaluation results. Missing future outcomes remain missing. Five-class labels are deferred. The operational timing must be explicit: features through close `t` can only support a decision after that close, for a next-session outcome.
 
 ## 7. End-to-end pipeline
 
@@ -74,15 +93,16 @@ Raw OHLCV / auxiliary series
   → schema and quality validation
   → chronological alignment and adjusted-price policy
   → feature engineering using only past/current observations
-  → forward target creation and unavailable-label removal
+  → binary and three-class forward target creation and unavailable-label removal
   → chronological train / validation / final-test split
   → fit transforms on training windows only
   → feature selection or PCA within each training fold
   → tune classical SVM baselines with walk-forward CV
   → choose bounded reduced input for quantum experiments
   → construct classical / quantum kernel matrices
-  → evaluate held-out periods and record resources
-  → ablations, noise, scaling, and statistical comparison
+  → matched binary and three-class exploratory comparison and resource accounting [implemented]
+  → scaling, circuit ablations and statistical validation [planned]
+  → five-class and noise experiments [deferred]
   → report results, limitations, and reproducible artifacts
 ```
 
@@ -215,7 +235,7 @@ project-root/
 └── reports/                 # final report/slides
 ```
 
-## 19. Delivery plan
+## 19. Original delivery plan (historical; current status above supersedes it)
 
 ### Overnight 50% milestone
 

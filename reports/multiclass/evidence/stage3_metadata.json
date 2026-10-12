@@ -1,0 +1,54 @@
+{
+  "config": {
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "JPM",
+      "XOM",
+      "JNJ"
+    ],
+    "train_dates": 200,
+    "validation_dates": 80,
+    "evaluation_dates": 100,
+    "threshold": 0.0025,
+    "start": "2015-01-01",
+    "validation_start": "2021-01-01",
+    "evaluation_start": "2023-01-01",
+    "end": "2025-01-01",
+    "seed": 42
+  },
+  "features": [
+    "return_1d",
+    "return_5d",
+    "return_10d",
+    "return_20d",
+    "volatility_5d",
+    "volatility_10d",
+    "volatility_20d",
+    "ma_distance_5d",
+    "ma_distance_10d",
+    "ma_distance_20d",
+    "ma_distance_50d",
+    "intraday_range",
+    "close_open_return",
+    "volume_log_change",
+    "volume_zscore_20d",
+    "rsi_14d"
+  ],
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "qiskit": "2.5.2",
+    "qiskit-machine-learning": "0.9.1"
+  },
+  "input_sha256": {
+    "SP500_features.csv": "8068ea89622ca36cff4e30b188f3a1acd0fd9b499a28d6386ccf769e1d768e1b",
+    "SP500_targets.csv": "bfa323a4aed397c8990a11eeee7e3164fe58c8596f8aa14f4e7a7d25d86cacbf",
+    "feature_columns.json": "c482035636141f7ba89148fcc123102726821e5cf325d3e13b01cbcd95253eda"
+  },
+  "code_sha256": "9519c8ff5b424a9db95b471cf4cbeaea0324f12e343daf7b14f1eb2424608b8b",
+  "evaluation_status": "Exploratory, previously inspected period",
+  "kernel_reuse": "Same label-independent kernel reused across tasks; per-model costs allocate full kernel build, do not sum to actual workflow time"
+}

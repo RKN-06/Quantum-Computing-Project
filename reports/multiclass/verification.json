@@ -1,0 +1,32 @@
+{
+  "notebooks": [
+    {
+      "notebook": "01_data_understanding.ipynb",
+      "code_cells": 22,
+      "executed": true
+    },
+    {
+      "notebook": "02_feature_engineering.ipynb",
+      "code_cells": 19,
+      "executed": true
+    },
+    {
+      "notebook": "03_classical_svm.ipynb",
+      "code_cells": 9,
+      "executed": true
+    },
+    {
+      "notebook": "04_qsvm.ipynb",
+      "code_cells": 9,
+      "executed": true
+    },
+    {
+      "notebook": "05_comparison_analysis.ipynb",
+      "code_cells": 8,
+      "executed": true
+    }
+  ],
+  "metric_checks": 140,
+  "shared_evaluation_rows": 500,
+  "shared_evaluation_dates": 100
+}

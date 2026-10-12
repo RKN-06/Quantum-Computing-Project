@@ -10,3 +10,6 @@ results/
 
 # Isolated quantum benchmark environment
 .venv-stage4/
+
+# Regenerable multiclass target metadata
+data/processed/SP500_targets.csv

@@ -10,7 +10,7 @@ Executed initial benchmark for AAPL, MSFT, JPM, XOM and JNJ using all 16 enginee
 
 Generate the feature CSV with Notebook 02 if it is absent; it is not duplicated in this stage's commit. Keep source data accessible through Git LFS.
 
-The pre-existing `.venv` pointed to an unavailable Python installation. An isolated `.venv-stage3` was created for this run. In VS Code select `.venv-stage3/Scripts/python.exe` as the notebook kernel, open `notebooks/03_classical_svm.ipynb`, and Run All. For another machine, create a Python 3.12 environment and install `requirements-stage3.txt`, then select that environment. Do not reuse a copied virtual environment from a different machine.
+The pre-existing `.venv` pointed to an unavailable Python installation. An isolated `.venv-stage3` was created for this run. In VS Code select `.venv-stage4/Scripts/python.exe` as the notebook kernel, open `notebooks/03_classical_svm.ipynb`, and Run All. For another machine, create a Python 3.12 environment and install `requirements-stage4.txt`, then select that environment. Do not reuse a copied virtual environment from a different machine.
 
 ## Protocol
 Development starts in 2015 and ends before 2023. Evaluation uses 2023–2024. Sampling selects at most 500 evenly spaced development dates and 200 evaluation dates, retaining all available selected tickers at each date without examining labels. Date boundaries are shared across stocks.
@@ -47,3 +47,8 @@ The five named stocks and the earlier long-history eligibility screen can introd
 
 ## Next stage
 Fit dimensionality reduction and bounded quantum mappings on development training data. Compare quantum and classical kernels on exactly matched observations and representations. Advanced scaling, noise, hardware and statistical studies remain future stages.
+
+
+## Binary plus three-class update
+
+The original results above document the legacy binary experiment. The updated notebooks retain that evidence and add the protocol documented in [multiclass extension](multiclass_extension.md). Every code cell now has a heading and one-line explanation. Use requirements-stage4.txt for the updated notebook sequence. Three-class output is separate from binary output; five-class and noise remain deferred. The original matched comparison is complete, not future work.

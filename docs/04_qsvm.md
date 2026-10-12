@@ -83,3 +83,8 @@ Later stages cover larger matched comparisons, sample/qubit scaling, circuit abl
 ## References
 - [IBM: ZZ feature map](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.zz_feature_map)
 - [Qiskit Machine Learning: FidelityStatevectorKernel](https://qiskit-community.github.io/qiskit-machine-learning/stubs/qiskit_machine_learning.kernels.FidelityStatevectorKernel.html)
+
+
+## Binary plus three-class update
+
+The original results above document the legacy binary experiment. The updated notebooks retain that evidence and add the protocol documented in [multiclass extension](multiclass_extension.md). Every code cell now has a heading and one-line explanation. Use requirements-stage4.txt for the updated notebook sequence. Three-class output is separate from binary output; five-class and noise remain deferred. The original matched comparison is complete, not future work.

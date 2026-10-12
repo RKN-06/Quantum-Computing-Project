@@ -125,3 +125,10 @@ Remaining limitations include:
 `03_classical_svm.ipynb` will define chronological splits and a manageable experiment sample, apply training-only preprocessing, and evaluate dummy, linear, RBF, and polynomial SVM baselines.
 
 For pooled multi-stock experiments, split boundaries must be based on dates across all tickers. Training labels that extend into a validation or test period must be excluded.
+
+
+## Binary plus three-class update
+
+The original results above document the legacy binary experiment. The updated notebooks retain that evidence and add the protocol documented in [multiclass extension](multiclass_extension.md). Every code cell now has a heading and one-line explanation. Use requirements-stage4.txt for the updated notebook sequence. Three-class output is separate from binary output; five-class and noise remain deferred. The original matched comparison is complete, not future work.
+
+Notebook 02 additionally generates `data/processed/SP500_targets.csv` with identifiers, binary/three-class labels, simple forward returns and label-end dates. This is target metadata, never model input. It is ignored by Git and reproducible; the 16-feature allowlist and original feature CSV schema remain unchanged.

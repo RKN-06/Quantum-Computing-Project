@@ -70,3 +70,8 @@ Two main stages remain:
 2. Time-aware statistical validation, robustness/source-data review and the final report and presentation.
 
 These future stages should freeze their protocol before examining fresh evaluation results. Broader conclusions must wait for that evidence.
+
+
+## Binary plus three-class update
+
+The original results above document the legacy binary experiment. The updated notebooks retain that evidence and add the protocol documented in [multiclass extension](multiclass_extension.md). Every code cell now has a heading and one-line explanation. Use requirements-stage4.txt for the updated notebook sequence. Three-class output is separate from binary output; five-class and noise remain deferred. The original matched comparison is complete, not future work.

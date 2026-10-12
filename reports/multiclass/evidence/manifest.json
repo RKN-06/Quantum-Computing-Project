@@ -1,0 +1,22 @@
+{
+  "stage3_metrics.csv": "3a349dba75352c098ccd57580d8961cae978bf81b3bc514f1369e0b839049312",
+  "stage3_predictions.csv": "268e717969d1d741494e4d5dae9aeab9fed98942d87d127365457868206c24b9",
+  "stage3_class_support.csv": "0b2e434da5b5695439a4fac482cf2ddc1fbf2efae8ed081ba2a7a86e77de7b3d",
+  "stage3_validation_trials.csv": "9310634e05301842c33f0a23ab182c59eabd2235df58ea1f08874309af8a0690",
+  "stage3_metadata.json": "65f5ca2b4d426af764893565f766b59cd593748d5b84a2a2ee2616965a43690b",
+  "stage3_kernel_diagnostics.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "stage3_preprocessing.json": "bae4629eda9b9d11cf5b61afaadb8957f60a1e55ea39a7286f8aaba3ee0137f4",
+  "stage3_train_sample.csv": "decf186586f983a01662dc8ceb3e7d33d159de123ce212fff2cc69fd08badbff",
+  "stage3_validation_sample.csv": "5e74fc58eb636969920a26341531dd63f9fb894271bf6bd00a0eef4023723e4e",
+  "stage3_evaluation_sample.csv": "a2650f3b355a10833900e8a12f951b2274599a27d5144074dd2ab125334f621a",
+  "stage4_metrics.csv": "933b0fac4c14af9d8caefb5763ec7af17b808eccfe264fe2c5790846a6b5ae15",
+  "stage4_predictions.csv": "96d86dbb4afb24f96c619220ec35fdde223ae2e67acbfa7a276b827028e06000",
+  "stage4_class_support.csv": "0b2e434da5b5695439a4fac482cf2ddc1fbf2efae8ed081ba2a7a86e77de7b3d",
+  "stage4_validation_trials.csv": "7e10dde00b8b4862e463c1013f4bb258298423a51cb871d3b1ef11e7ec71cea5",
+  "stage4_metadata.json": "65f5ca2b4d426af764893565f766b59cd593748d5b84a2a2ee2616965a43690b",
+  "stage4_kernel_diagnostics.json": "9d97deda43aa9014387dae6a18c2f5ec6a50c2f2283436c622bea0be65bc1a1b",
+  "stage4_preprocessing.json": "99140515f80ea5ed6e449d007654e69fec19157adcf05ad641a415f4751fe2f1",
+  "stage4_train_sample.csv": "decf186586f983a01662dc8ceb3e7d33d159de123ce212fff2cc69fd08badbff",
+  "stage4_validation_sample.csv": "5e74fc58eb636969920a26341531dd63f9fb894271bf6bd00a0eef4023723e4e",
+  "stage4_evaluation_sample.csv": "a2650f3b355a10833900e8a12f951b2274599a27d5144074dd2ab125334f621a"
+}

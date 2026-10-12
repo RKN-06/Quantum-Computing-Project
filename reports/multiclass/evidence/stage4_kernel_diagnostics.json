@@ -1,0 +1,42 @@
+[
+  {
+    "phase": "selection",
+    "dimension": 2,
+    "train_kernel_seconds": 4.688994399999501,
+    "test_kernel_seconds": 2.239065199973993,
+    "kernel_bytes": 11200000,
+    "min_eigenvalue": -1.282180589825545e-13,
+    "depth": 5,
+    "cx_gates": 2
+  },
+  {
+    "phase": "final",
+    "dimension": 2,
+    "train_kernel_seconds": 9.087164500000654,
+    "test_kernel_seconds": 3.6324497000023257,
+    "kernel_bytes": 21280000,
+    "min_eigenvalue": -1.7051406947749888e-13,
+    "depth": 5,
+    "cx_gates": 2
+  },
+  {
+    "phase": "selection",
+    "dimension": 4,
+    "train_kernel_seconds": 5.1249590999796055,
+    "test_kernel_seconds": 2.472080100007588,
+    "kernel_bytes": 11200000,
+    "min_eigenvalue": -1.104710221331878e-14,
+    "depth": 11,
+    "cx_gates": 6
+  },
+  {
+    "phase": "final",
+    "dimension": 4,
+    "train_kernel_seconds": 9.549557599995751,
+    "test_kernel_seconds": 4.123638099990785,
+    "kernel_bytes": 21280000,
+    "min_eigenvalue": -2.0634480521396682e-14,
+    "depth": 11,
+    "cx_gates": 6
+  }
+]
