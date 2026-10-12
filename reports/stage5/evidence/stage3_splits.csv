@@ -1,0 +1,3 @@
+split,rows,stocks,start,end,up_fraction
+development,2500,5,2015-01-02,2022-12-29,0.498
+evaluation,1000,5,2023-01-03,2024-12-30,0.527

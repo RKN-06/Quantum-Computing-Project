@@ -1,0 +1,136 @@
+{
+  "config": {
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "JPM",
+      "XOM",
+      "JNJ"
+    ],
+    "start": "2015-01-01",
+    "validation_start": "2021-01-01",
+    "test_start": "2023-01-01",
+    "end": "2025-01-01",
+    "train_dates": 40,
+    "validation_dates": 16,
+    "test_dates": 20,
+    "dimensions": [
+      2,
+      4
+    ],
+    "C": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "seed": 42,
+    "reps": 1,
+    "entanglement": "linear",
+    "angle_range": [
+      -3.141592653589793,
+      3.141592653589793
+    ]
+  },
+  "features": [
+    "return_1d",
+    "return_5d",
+    "return_10d",
+    "return_20d",
+    "volatility_5d",
+    "volatility_10d",
+    "volatility_20d",
+    "ma_distance_5d",
+    "ma_distance_10d",
+    "ma_distance_20d",
+    "ma_distance_50d",
+    "intraday_range",
+    "close_open_return",
+    "volume_log_change",
+    "volume_zscore_20d",
+    "rsi_14d"
+  ],
+  "selected_parameters": {
+    "(2, 'dummy')": {
+      "parameters": {},
+      "validation_balanced_accuracy": 0.5
+    },
+    "(2, 'linear')": {
+      "parameters": {
+        "C": 0.1
+      },
+      "validation_balanced_accuracy": 0.5104166666666667
+    },
+    "(2, 'polynomial')": {
+      "parameters": {
+        "C": 10.0,
+        "degree": 3,
+        "gamma": "scale"
+      },
+      "validation_balanced_accuracy": 0.46875
+    },
+    "(2, 'qsvm')": {
+      "parameters": {
+        "C": 10.0
+      },
+      "validation_balanced_accuracy": 0.5052083333333333
+    },
+    "(2, 'rbf')": {
+      "parameters": {
+        "C": 1.0,
+        "gamma": 0.01
+      },
+      "validation_balanced_accuracy": 0.5364583333333333
+    },
+    "(4, 'dummy')": {
+      "parameters": {},
+      "validation_balanced_accuracy": 0.5
+    },
+    "(4, 'linear')": {
+      "parameters": {
+        "C": 0.1
+      },
+      "validation_balanced_accuracy": 0.5104166666666666
+    },
+    "(4, 'polynomial')": {
+      "parameters": {
+        "C": 0.1,
+        "degree": 3,
+        "gamma": "scale"
+      },
+      "validation_balanced_accuracy": 0.453125
+    },
+    "(4, 'qsvm')": {
+      "parameters": {
+        "C": 1.0
+      },
+      "validation_balanced_accuracy": 0.6458333333333333
+    },
+    "(4, 'rbf')": {
+      "parameters": {
+        "C": 0.1,
+        "gamma": 0.01
+      },
+      "validation_balanced_accuracy": 0.5
+    }
+  },
+  "selection_seconds": {
+    "2": 0.6023787999874912,
+    "4": 0.603029299993068
+  },
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "qiskit": "2.5.2",
+    "qiskit-machine-learning": "0.9.1",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1"
+  },
+  "input_sha256": {
+    "SP500_features.csv": "8068ea89622ca36cff4e30b188f3a1acd0fd9b499a28d6386ccf769e1d768e1b",
+    "feature_columns.json": "c482035636141f7ba89148fcc123102726821e5cf325d3e13b01cbcd95253eda",
+    "SP500_cleaned_eligible_tickers.csv": "e975ad556f002db015e5d90cdd426c924a350d9c515c5506c4da8bf2281c6213"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "stage3_metrics.csv": {
+    "source": "results/stage3/metrics.csv",
+    "sha256": "4753e086252f6fc78f5418915c59d566b12e5a6bc212c66fb4e0f91b615f426b"
+  },
+  "stage3_splits.csv": {
+    "source": "results/stage3/splits.csv",
+    "sha256": "d5c8c1b320a89baa16323b84c10040682dc98978fdb884ff1a0c0e060672ee43"
+  },
+  "stage3_metadata.json": {
+    "source": "results/stage3/metadata.json",
+    "sha256": "4591140cf6715b688711816c4453fcc258d5fcacc5ec41181d11b4f500938d7c"
+  },
+  "stage4_metrics.csv": {
+    "source": "results/stage4/metrics.csv",
+    "sha256": "f7f4474b0c4db83a9ba7c0e0dd3506d8df334f62b52592f6f60fc023e3ee86df"
+  },
+  "stage4_predictions.csv": {
+    "source": "results/stage4/predictions.csv",
+    "sha256": "c1b1de44abf8f1f5fba9a734ef2bce8bfb1a74d3c0b76481c2f1c63d49569af9"
+  },
+  "stage4_splits.csv": {
+    "source": "results/stage4/splits.csv",
+    "sha256": "124a948384bcb79e1efafb77cd1bf7e117d75b85b4129655cef3883068b5711d"
+  },
+  "stage4_pca_summary.csv": {
+    "source": "results/stage4/pca_summary.csv",
+    "sha256": "ab80b440befb016b37d85fe27494d470148a366779da4d80671ca4d709cb57d6"
+  },
+  "stage4_kernel_diagnostics.json": {
+    "source": "results/stage4/kernel_diagnostics.json",
+    "sha256": "9a2b1a73f909d2d451c3561694353897f25a22b19050e57fbe96e8957dd078b9"
+  },
+  "stage4_metadata.json": {
+    "source": "results/stage4/metadata.json",
+    "sha256": "645d6173505169256e70cef4fa1e6ec2ba32fe6a5a1705c6ab272453c549f218"
+  }
+}

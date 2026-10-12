@@ -1,0 +1,94 @@
+[
+  {
+    "dimension": 2,
+    "phase": "selection",
+    "train_shape": [
+      200,
+      200
+    ],
+    "cross_shape": [
+      80,
+      200
+    ],
+    "min_eigenvalue": -1.7997052597533254e-14,
+    "train_kernel_seconds": 0.24490779999177903,
+    "cross_kernel_seconds": 0.14941589999943972,
+    "kernel_array_bytes": 448000,
+    "circuit_depth": 5,
+    "two_qubit_gates": 2,
+    "operations": {
+      "p": 3,
+      "h": 2,
+      "cx": 2
+    }
+  },
+  {
+    "dimension": 4,
+    "phase": "selection",
+    "train_shape": [
+      200,
+      200
+    ],
+    "cross_shape": [
+      80,
+      200
+    ],
+    "min_eigenvalue": 7.685740130509579e-16,
+    "train_kernel_seconds": 0.2885666999791283,
+    "cross_kernel_seconds": 0.21881720001692884,
+    "kernel_array_bytes": 448000,
+    "circuit_depth": 11,
+    "two_qubit_gates": 6,
+    "operations": {
+      "p": 7,
+      "cx": 6,
+      "h": 4
+    }
+  },
+  {
+    "dimension": 2,
+    "phase": "final",
+    "train_shape": [
+      280,
+      280
+    ],
+    "cross_shape": [
+      100,
+      280
+    ],
+    "min_eigenvalue": -2.2617108460397134e-14,
+    "train_kernel_seconds": 0.4288611999945715,
+    "cross_kernel_seconds": 0.22193939998396672,
+    "kernel_array_bytes": 851200,
+    "circuit_depth": 5,
+    "two_qubit_gates": 2,
+    "operations": {
+      "p": 3,
+      "h": 2,
+      "cx": 2
+    }
+  },
+  {
+    "dimension": 4,
+    "phase": "final",
+    "train_shape": [
+      280,
+      280
+    ],
+    "cross_shape": [
+      100,
+      280
+    ],
+    "min_eigenvalue": -3.2826764107813155e-16,
+    "train_kernel_seconds": 0.5059546000265982,
+    "cross_kernel_seconds": 0.3130043000273872,
+    "kernel_array_bytes": 851200,
+    "circuit_depth": 11,
+    "two_qubit_gates": 6,
+    "operations": {
+      "p": 7,
+      "cx": 6,
+      "h": 4
+    }
+  }
+]
