@@ -1,0 +1,5 @@
+development_rows,qubits,train_kernel_seconds,evaluation_kernel_seconds,kernel_memory_MiB
+1400,2,9.16,3.64,20.29
+1400,4,9.64,4.13,20.29
+2000,2,22.15,5.82,38.15
+2000,4,22.61,7.63,38.15

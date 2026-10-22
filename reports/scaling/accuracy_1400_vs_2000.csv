@@ -1,0 +1,9 @@
+development_rows,task,qubits,classical_model,classical_%,qsvm_%,qsvm_minus_classical_pp
+1400,binary,2,rbf,49.93,48.49,-1.44
+1400,binary,4,polynomial,51.34,47.73,-3.62
+1400,three_class,2,polynomial,36.82,35.16,-1.66
+1400,three_class,4,linear,34.24,30.43,-3.82
+2000,binary,2,polynomial,47.95,51.59,3.64
+2000,binary,4,polynomial,44.52,53.23,8.71
+2000,three_class,2,rbf,38.09,36.43,-1.66
+2000,three_class,4,rbf,34.86,34.21,-0.65

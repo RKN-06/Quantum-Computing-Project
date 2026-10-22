@@ -13,3 +13,4 @@ results/
 
 # Regenerable multiclass target metadata
 data/processed/SP500_targets.csv
+data/processed/SP500_features.csv
